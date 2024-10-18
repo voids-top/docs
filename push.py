@@ -4,7 +4,7 @@ import glob
 import subprocess
 import uuid
 
-out = "/root/code/docs/.vitepress/dist/*"
+out = "/root/code/docs/dist/docs/*"
 blacklist = ["./CNAME", "./.git", "./push.py", "./json.html", "./nojekyll"]
 
 for file in glob.glob("./*"):
@@ -21,6 +21,7 @@ for file in glob.glob(out):
     else:
         shutil.copy(file, ".")
 
+subprocess.run("mv docs/assets assets", shell=True)
 subprocess.run("git add .", shell=True)
 subprocess.run(f"git commit -m {uuid.uuid4()}", shell=True)
 subprocess.run("git push", shell=True)
