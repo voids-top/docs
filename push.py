@@ -4,7 +4,7 @@ import glob
 import subprocess
 import uuid
 
-out = "/root/code/docs/.vitepress/dist"
+out = "/root/code/docs/.vitepress/dist/*"
 blacklist = ["./CNAME", "./.git", "./push.py", "./json.html", "./nojekyll"]
 
 for file in glob.glob("./*"):
